@@ -1,0 +1,21 @@
+name: Build Project
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install
+        run: |
+          sudo apt-get update
+
+      - name: Run CMake
+        run: |
+          cmake -S . -B build
+          cmake --build build -j 2
