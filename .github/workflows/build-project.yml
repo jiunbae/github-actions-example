@@ -17,5 +17,9 @@ jobs:
 
       - name: Run CMake
         run: |
-          cmake -S . -B build
+          cmake -S ./src -B build
           cmake --build build -j 2
+
+      - name: Run
+        run: |
+          ./build/main
